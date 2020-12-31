@@ -6,40 +6,42 @@ const compareTime = (startDate: string, endDate: string, eta: string) => {
   let d = eta.slice(3, 5);
   let h = eta.slice(6, 8);
   let mi = eta.slice(9, 11);
-  let currentMonth = Moment().month();
+  let currentMonth = Moment(new Date().toISOString()).month();
   let shipArrivalDate = undefined;
   if (currentMonth > parseInt(m)) {
     shipArrivalDate = Moment(
-      (m === "00" ? Moment().month() : m) +
+      (m === "00" ? Moment(new Date().toISOString()).month() : m) +
         "-" +
-        (m === "00" ? Moment().date() : d) +
+        (m === "00" ? Moment(new Date().toISOString()).date() : d) +
         "-" +
-        (Moment().year() + 1) +
+        (Moment(new Date().toISOString()).year() + 1) +
         " " +
-        (h === "24" ? Moment().hour() : h) +
+        (h === "24" ? Moment(new Date().toISOString()).hour() : h) +
         ":" +
-        (mi === "60" ? Moment().minute() : mi),
+        (mi === "60" ? Moment(new Date().toISOString()).minute() : mi),
       "MM-DD-YYYY hh:mm"
     );
   } else {
     shipArrivalDate = Moment(
-      (m === "00" ? Moment().month() : m) +
+      (m === "00" ? Moment(new Date().toISOString()).month() : m) +
         "-" +
-        (d === "00" ? Moment().date() : d) +
+        (d === "00" ? Moment(new Date().toISOString()).date() : d) +
         "-" +
-        Moment().year() +
+        Moment(new Date().toISOString()).year() +
         " " +
-        (h === "24" ? Moment().hour() : h) +
+        (h === "24" ? Moment(new Date().toISOString()).hour() : h) +
         ":" +
-        (mi === "60" ? Moment().minute() : mi),
+        (mi === "60" ? Moment(new Date().toISOString()).minute() : mi),
       "MM-DD-YYYY hh:mm"
     );
   }
   let suitable = false;
   try {
     suitable =
-      Moment(startDate).isSameOrBefore(shipArrivalDate) &&
-      Moment(endDate).isSameOrAfter(shipArrivalDate);
+      Moment(new Date(startDate).toISOString()).isSameOrBefore(
+        shipArrivalDate
+      ) &&
+      Moment(new Date(endDate).toISOString()).isSameOrAfter(shipArrivalDate);
     return suitable;
   } catch (err) {
     return suitable;

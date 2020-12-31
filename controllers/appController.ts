@@ -5,7 +5,7 @@ import { IShipInterface, IPort } from "../interfaces/interfaces";
 import { filterShips } from "./comparators/filter";
 import { fillPorts } from "./util/fillPorts";
 
-let portArray: Array<IPort>;
+export let portArray: Array<IPort>;
 (async () => {
   portArray = await fillPorts();
 })();
@@ -35,7 +35,7 @@ const getShips = (req: Request, res: Response) => {
       req.body.params.distance,
       req.body.params.includeIdleVessels
     );
-    res.json({ port: portFullData, ships: filteredData });
+    res.status(200).json({ port: portFullData, ships: filteredData });
   } catch (err) {
     res.status(500).json({
       status: err,

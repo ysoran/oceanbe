@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/index",
     "webpack": "webpack --config webpack.config.ts",
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "keywords": [],
   "author": "Yasar Soran",
@@ -21,6 +21,7 @@
     "express": "^4.17.1",
     "helmet": "^4.2.0",
     "moment": "^2.29.1",
+    "natives": "^1.1.6",
     "ts-jest": "^26.4.4",
     "ts-node": "^9.1.1"
   },

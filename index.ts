@@ -6,9 +6,6 @@ import routes from "./routes/routes";
 const compression = require("compression");
 
 dotenv.config();
-if (!process.env.PORT) {
-  process.exit(1);
-}
 
 const PORT = parseInt(process.env.PORT as string, 10) || 4000;
 const app = express();
@@ -22,7 +19,7 @@ let server = app.listen(PORT, () => {
   console.log(`Ocean app is alive on port ${PORT}`);
 });
 
-module.exports = app;
+module.exports = { server, app };
 
 if (module.hot) {
   module.hot.accept();
