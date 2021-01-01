@@ -1,4 +1,4 @@
-An example project to fetch all states around the world and filter ports and put them on the map and try to find and mark closest ships in the map. Frontend is on the ocean project (https://github.com/ysoran/ocean)
+An example project to fetch all states around the world and filter ports and put them on the map and try to find and mark closest ships and selected port on the map. Frontend is on the ocean project (https://github.com/ysoran/ocean)
 
 ## Installation Instructions
 
