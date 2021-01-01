@@ -43,14 +43,8 @@ describe("Get endpoints", () => {
   });
 });
 
-describe("Post endpoints", () => {
-  it("should create a new resp", async (done) => {
-    const res1 = await request(application.app)
-      .get("/getShips")
-      .then(() => {
-        done();
-      });
-    expect(res1).toEqual(undefined);
+describe("Post ship endpoint", () => {
+  it("should create correct resp", async (done) => {
     const res = await request(application.app)
       .post("/getShips")
       .set("Content-type", "application/json")
@@ -66,7 +60,7 @@ describe("Post endpoints", () => {
       .then(() => {
         done();
       });
-
+    console.log(res.statusCode);
     expect(res.statusCode).toEqual(300);
   });
 });
