@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/index",
     "webpack": "webpack --config webpack.config.ts",
-    "test": "jest --detectOpenHandles"
+    "test": "jest --detectOpenHandles --coverage"
   },
   "keywords": [],
   "author": "Yasar Soran",

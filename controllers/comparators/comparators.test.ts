@@ -30,3 +30,17 @@ test("compareTime fails with wrong input", () => {
   );
   expect(timeIsSuitable).toBe(false);
 });
+
+test("comparePort function works", () => {
+  let port = {
+    name: "london",
+    country_code: "england",
+    city_code: "ln",
+    location: "ln",
+    value: "ln",
+  };
+  let result = comparePort("london", port);
+  let result2 = comparePort("new york", port);
+  expect(result).toBe(true);
+  expect(result2).toBe(false);
+});
